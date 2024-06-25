@@ -31,10 +31,10 @@ class PositionalEncoding(nn.Module):
         # return self.pe[:, :x.size(1)].unsqueeze(2).expand_as(x).detach()
 
 
-class MATGRN(nn.Module):
+class QMAGRN(nn.Module):
     def __init__(self, num_nodes, input_dim, output_dim, horizon, rnn_units, num_layers=1, cheb_k=3,
                  ycov_dim=2, mem_num=20, mem_dim=72, cl_decay_steps=2000, use_curriculum_learning=True):
-        super(MATGRN, self).__init__()
+        super(QMAGRN, self).__init__()
         self.num_nodes = num_nodes
         self.input_dim = input_dim
         self.rnn_units = rnn_units

@@ -15,7 +15,7 @@ import argparse
 import logging
 from utils import StandardScaler, DataLoader, masked_mae_loss, masked_mape_loss, \
     masked_rmse_loss, print_log, CustomJSONEncoder, quadruplet_loss, steps_output
-from MATGRN import MATGRN
+from QMAGRN import QMAGRN
 
 
 def prepare_x_y(x, y, cfg):
@@ -242,7 +242,7 @@ if __name__ == '__main__':
     dataset = args.dataset
     dataset = dataset.upper()
 
-    model_name = MATGRN.__name__
+    model_name = QMAGRN.__name__
     with open(f'{model_name}.yaml', 'r') as f:
         cfg = yaml.safe_load(f)
     cfg = cfg[dataset]
@@ -252,7 +252,7 @@ if __name__ == '__main__':
     # torch.manual_seed(cfg['seed'])
     # if torch.cuda.is_available(): torch.cuda.manual_seed(cfg['seed'])
     # -------------------------- load model ------------------------- #
-    model = MATGRN(**cfg['model_args'])
+    model = QMAGRN(**cfg['model_args'])
     # ----------------------------make log file----------------------------- #
     now = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
     log_path = f'../logs/'
