@@ -1,0 +1,5 @@
+python==3.9.17
+pytorch==1.12.1
+numpy==1.26.2
+tables==3.9.2
+torchsummary==1.5.1
